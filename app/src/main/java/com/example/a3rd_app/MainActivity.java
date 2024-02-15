@@ -15,17 +15,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         b6=(Button) findViewById(R.id.btnDice6);
         b20=(Button) findViewById(R.id.btnDice20);
+        Intent intent = new Intent(MainActivity.this,DiceActivity.class);
+
         b6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,DiceActivity.class);
+                intent.putExtra("value",6);
                 startActivity(intent);
             }
         });
         b20.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,DiceActivity.class);
+                intent.putExtra("value",20);
                 startActivity(intent);
             }
         });

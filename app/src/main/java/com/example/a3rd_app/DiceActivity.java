@@ -16,14 +16,16 @@ public class DiceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dice);
+        int valuer= getIntent().getIntExtra("value",0);
         btnRoll=(Button) findViewById(R.id.btnRoll);
         txtResult=(TextView) findViewById(R.id.txtResult);
         txtTitle=(TextView) findViewById(R.id.txtTitle);
+        txtTitle.setText(""+valuer+" sided dice");
         btnRoll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SecureRandom random=  new SecureRandom();
-                int r = random.nextInt(6)+1;
+                int r = random.nextInt(valuer)+1;
                 txtResult.setText(""+r);
             }
         });
